@@ -30,7 +30,6 @@
     overflow-x: hidden;
   }
 
-  /* Grid background */
   body::before {
     content: '';
     position: fixed;
@@ -43,7 +42,6 @@
     z-index: 0;
   }
 
-  /* Glow orb */
   body::after {
     content: '';
     position: fixed;
@@ -56,7 +54,6 @@
     z-index: 0;
   }
 
-  /* ===== HEADER ===== */
   header {
     position: relative;
     z-index: 10;
@@ -101,7 +98,6 @@
     50% { opacity: 0.4; }
   }
 
-  /* ===== LAYOUT ===== */
   .app {
     position: relative;
     z-index: 1;
@@ -110,7 +106,6 @@
     height: calc(100vh - 65px);
   }
 
-  /* ===== SIDEBAR ===== */
   .sidebar {
     border-right: 1px solid var(--border);
     padding: 24px 16px;
@@ -164,7 +159,6 @@
   .badge.green { background: var(--green); }
   .badge.blue { background: var(--blue); }
 
-  /* Stats in sidebar */
   .sidebar-stats {
     margin-top: auto;
     padding: 16px;
@@ -187,7 +181,6 @@
   .stat-val.accent { color: var(--accent); }
   .stat-val.green { color: var(--green); }
 
-  /* ===== MAIN CONTENT ===== */
   .main {
     overflow-y: auto;
     padding: 28px 28px;
@@ -209,7 +202,6 @@
     letter-spacing: 0.5px;
   }
 
-  /* ===== LEAD INPUT FORM ===== */
   .input-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -250,7 +242,6 @@
   }
 
   select option { background: var(--surface2); }
-
   textarea { resize: vertical; min-height: 80px; }
 
   .btn {
@@ -268,10 +259,7 @@
     letter-spacing: 0.3px;
   }
 
-  .btn-primary {
-    background: var(--accent);
-    color: #000;
-  }
+  .btn-primary { background: var(--accent); color: #000; }
   .btn-primary:hover { background: #ff8555; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255,107,53,0.3); }
 
   .btn-ghost {
@@ -280,10 +268,8 @@
     border: 1px solid var(--border);
   }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
   .btn-sm { padding: 7px 14px; font-size: 12px; }
 
-  /* ===== LEAD CARDS ===== */
   .leads-grid {
     display: flex;
     flex-direction: column;
@@ -299,6 +285,7 @@
     transition: all 0.2s;
     position: relative;
     overflow: hidden;
+    animation: fadeIn 0.3s ease;
   }
 
   .lead-card::before {
@@ -333,11 +320,7 @@
     color: var(--text);
   }
 
-  .lead-location {
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 2px;
-  }
+  .lead-location { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
   .stage-badge {
     font-size: 10px;
@@ -364,7 +347,6 @@
 
   .lead-meta span { display: flex; align-items: center; gap: 4px; }
 
-  /* ===== RIGHT PANEL ===== */
   .right-panel {
     border-left: 1px solid var(--border);
     overflow-y: auto;
@@ -442,7 +424,6 @@
     border-top: 1px solid var(--border);
   }
 
-  /* ===== PIPELINE PAGE ===== */
   .pipeline-columns {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -487,7 +468,6 @@
   .pipeline-item-name { font-weight: 600; color: var(--text); margin-bottom: 3px; }
   .pipeline-item-meta { color: var(--muted); font-size: 11px; }
 
-  /* ===== AI OUTREACH ===== */
   .outreach-form { display: flex; flex-direction: column; gap: 16px; }
 
   .pitch-output {
@@ -514,7 +494,6 @@
     50% { opacity: 0; }
   }
 
-  /* ===== FOLLOW UP ===== */
   .followup-list { display: flex; flex-direction: column; gap: 10px; }
 
   .followup-item {
@@ -542,7 +521,6 @@
   .followup-name { font-size: 14px; font-weight: 600; color: var(--text); }
   .followup-note { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-  /* ===== EMPTY STATE ===== */
   .empty {
     text-align: center;
     padding: 60px 20px;
@@ -551,7 +529,6 @@
   .empty-icon { font-size: 40px; margin-bottom: 12px; }
   .empty-text { font-size: 14px; }
 
-  /* ===== TOAST ===== */
   .toast {
     position: fixed;
     bottom: 24px;
@@ -570,13 +547,11 @@
   }
   .toast.show { opacity: 1; transform: translateY(0); }
 
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 5px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 
-  /* Modal */
   .modal-overlay {
     display: none;
     position: fixed; inset: 0;
@@ -613,18 +588,14 @@
     margin: 20px 0;
   }
 
-  /* Animations */
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  .lead-card { animation: fadeIn 0.3s ease; }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo">Ad<span>Hunter</span></div>
   <div class="header-meta">
@@ -640,7 +611,6 @@
 </header>
 
 <div class="app">
-  <!-- SIDEBAR -->
   <nav class="sidebar">
     <div class="sidebar-label">Navigation</div>
     <button class="nav-btn active" onclick="showPage('leads')" id="nav-leads">
@@ -684,9 +654,7 @@
     </div>
   </nav>
 
-  <!-- MAIN -->
   <div class="main">
-
     <!-- LEADS PAGE -->
     <div class="page active" id="page-leads">
       <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 24px;">
@@ -697,7 +665,6 @@
         <button class="btn btn-primary" onclick="openAddLead()">+ Add Lead</button>
       </div>
 
-      <!-- Filter bar -->
       <div style="display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;">
         <button class="btn btn-ghost btn-sm" onclick="filterLeads('all')" id="f-all" style="border-color:var(--accent); color:var(--accent);">All</button>
         <button class="btn btn-ghost btn-sm" onclick="filterLeads('new')" id="f-new">New</button>
@@ -718,15 +685,13 @@
     <div class="page" id="page-pipeline">
       <div class="page-title">Pipeline 📊</div>
       <div class="page-sub">Track every lead through your sales funnel</div>
-      <div class="pipeline-columns" id="pipeline-board">
-        <!-- Rendered by JS -->
-      </div>
+      <div class="pipeline-columns" id="pipeline-board"></div>
     </div>
 
     <!-- OUTREACH PAGE -->
     <div class="page" id="page-outreach">
       <div class="page-title">AI Outreach ✉️</div>
-      <div class="page-sub">Generate personalized cold outreach messages powered by AI</div>
+      <div class="page-sub">Generate personalized cold outreach messages powered by Gemini AI</div>
 
       <div class="outreach-form">
         <div class="input-grid">
@@ -770,7 +735,7 @@
         </div>
 
         <div id="out-loading" style="display:none; font-size:13px; color:var(--muted); padding:8px 0;">
-          🤖 AI is writing your pitch...
+          🤖 Gemini AI is writing your pitch...
         </div>
 
         <div class="pitch-output" id="pitch-output" style="display:none;"></div>
@@ -788,10 +753,8 @@
         </div>
       </div>
     </div>
-
   </div>
 
-  <!-- RIGHT PANEL -->
   <div class="right-panel" id="right-panel">
     <div class="panel-header">Lead Details</div>
     <div class="panel-body">
@@ -808,7 +771,6 @@
   <div class="modal">
     <div class="modal-title">+ Add New Lead</div>
 
-    <!-- WEBSITE SCAN SECTION -->
     <div style="background:rgba(255,107,53,0.06); border:1px solid rgba(255,107,53,0.2); border-radius:10px; padding:14px; margin-bottom:18px;">
       <div style="font-size:11px; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px;">⚡ AI Website Scanner — Auto-fill everything</div>
       <div style="display:flex; gap:8px;">
@@ -879,21 +841,21 @@
   </div>
 </div>
 
-
 <!-- API KEY MODAL -->
 <div class="modal-overlay" id="modal-api">
   <div class="modal" style="max-width:480px;">
-    <div class="modal-title">⚙️ Anthropic API Key</div>
+    <div class="modal-title">⚙️ Gemini API Key (ফ্রি!)</div>
     <p style="font-size:13px; color:var(--muted); margin-bottom:18px; line-height:1.7;">
-      এই app টি locally browser-এ run করতে তোমার Anthropic API key দরকার।<br>
+      এই app টি Google Gemini AI ব্যবহার করে — যা সম্পূর্ণ <strong style="color:var(--green)">ফ্রি!</strong><br>
       Key টি শুধু তোমার browser-এ save হবে — কোথাও পাঠানো হবে না।
     </p>
-    <div style="background:rgba(255,107,53,0.06); border:1px solid rgba(255,107,53,0.2); border-radius:8px; padding:12px; margin-bottom:16px; font-size:12px; color:var(--muted);">
-      📌 API key পাবে: <a href="https://console.anthropic.com/settings/keys" target="_blank" style="color:var(--accent); text-decoration:none;">console.anthropic.com/settings/keys</a>
+    <div style="background:rgba(46,204,113,0.06); border:1px solid rgba(46,204,113,0.3); border-radius:8px; padding:12px; margin-bottom:16px; font-size:12px; color:var(--muted);">
+      📌 ফ্রি API key পাবে: <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--green); text-decoration:none;">aistudio.google.com/app/apikey</a><br>
+      <span style="color:var(--green); margin-top:4px; display:block;">✅ Google account থাকলেই ফ্রিতে key পাবে!</span>
     </div>
     <div class="field" style="margin-bottom:16px;">
-      <label>API Key</label>
-      <input type="password" id="api-key-input" placeholder="sk-ant-api03-..." style="font-size:13px; letter-spacing:1px;">
+      <label>Gemini API Key</label>
+      <input type="password" id="api-key-input" placeholder="AIza..." style="font-size:13px; letter-spacing:1px;">
     </div>
     <div id="api-test-status" style="font-size:12px; margin-bottom:12px; display:none;"></div>
     <div style="display:flex; gap:10px;">
@@ -911,12 +873,28 @@
 let leads = JSON.parse(localStorage.getItem('adhunter_leads') || '[]');
 let selectedLead = null;
 let currentFilter = 'all';
-let ANTHROPIC_API_KEY = localStorage.getItem('adhunter_api_key') || '';
+let GEMINI_API_KEY = localStorage.getItem('adhunter_gemini_key') || '';
+
+// ===== GEMINI API CALL =====
+async function callGemini(prompt) {
+  if (!GEMINI_API_KEY) throw new Error('NO_KEY');
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { temperature: 0.8, maxOutputTokens: 1000 }
+    })
+  });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.error?.message || 'Gemini API error');
+  return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+}
 
 // ===== API KEY FUNCTIONS =====
 function openApiModal() {
   document.getElementById('modal-api').classList.add('open');
-  if (ANTHROPIC_API_KEY) document.getElementById('api-key-input').value = ANTHROPIC_API_KEY;
+  if (GEMINI_API_KEY) document.getElementById('api-key-input').value = GEMINI_API_KEY;
   document.getElementById('api-test-status').style.display = 'none';
 }
 
@@ -925,8 +903,8 @@ function closeApiModal() {
 }
 
 function clearApiKey() {
-  ANTHROPIC_API_KEY = '';
-  localStorage.removeItem('adhunter_api_key');
+  GEMINI_API_KEY = '';
+  localStorage.removeItem('adhunter_gemini_key');
   document.getElementById('api-key-input').value = '';
   updateApiStatus();
   closeApiModal();
@@ -935,29 +913,30 @@ function clearApiKey() {
 
 async function saveApiKey() {
   const key = document.getElementById('api-key-input').value.trim();
-  if (!key || !key.startsWith('sk-ant-')) {
+  if (!key || !key.startsWith('AIza')) {
     document.getElementById('api-test-status').style.display = 'block';
     document.getElementById('api-test-status').style.color = 'var(--danger)';
-    document.getElementById('api-test-status').textContent = '⚠️ Invalid key format. Should start with sk-ant-...';
+    document.getElementById('api-test-status').textContent = '⚠️ Invalid key. Gemini keys start with AIza...';
     return;
   }
 
   const statusEl = document.getElementById('api-test-status');
   statusEl.style.display = 'block';
   statusEl.style.color = 'var(--accent2)';
-  statusEl.textContent = '⏳ Testing API key...';
+  statusEl.textContent = '⏳ Testing Gemini API key...';
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
-      body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 10, messages: [{ role: 'user', content: 'Hi' }] })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contents: [{ parts: [{ text: 'Hi' }] }], generationConfig: { maxOutputTokens: 5 } })
     });
-    if (res.ok || res.status === 200) {
-      ANTHROPIC_API_KEY = key;
-      localStorage.setItem('adhunter_api_key', key);
+
+    if (res.ok) {
+      GEMINI_API_KEY = key;
+      localStorage.setItem('adhunter_gemini_key', key);
       statusEl.style.color = 'var(--green)';
-      statusEl.textContent = '✅ API key valid! Saving...';
+      statusEl.textContent = '✅ Gemini API key valid! Saving...';
       updateApiStatus();
       setTimeout(() => closeApiModal(), 1200);
     } else {
@@ -966,11 +945,10 @@ async function saveApiKey() {
       statusEl.textContent = '❌ Invalid key: ' + (err.error?.message || 'Authentication failed');
     }
   } catch(e) {
-    // If CORS error still happens, just save it anyway
-    ANTHROPIC_API_KEY = key;
-    localStorage.setItem('adhunter_api_key', key);
+    GEMINI_API_KEY = key;
+    localStorage.setItem('adhunter_gemini_key', key);
     statusEl.style.color = 'var(--green)';
-    statusEl.textContent = '✅ Key saved! (Could not verify — will test on first use)';
+    statusEl.textContent = '✅ Key saved!';
     updateApiStatus();
     setTimeout(() => closeApiModal(), 1500);
   }
@@ -980,16 +958,15 @@ function updateApiStatus() {
   const dot = document.getElementById('api-dot');
   const text = document.getElementById('api-status-text');
   const btn = document.getElementById('api-btn');
-  if (ANTHROPIC_API_KEY) {
+  if (GEMINI_API_KEY) {
     dot.style.background = 'var(--green)';
     dot.style.boxShadow = '0 0 8px var(--green)';
-    dot.style.animation = 'pulse 2s infinite';
     text.style.color = 'var(--green)';
     text.textContent = 'AGENT ACTIVE';
     btn.style.background = 'rgba(46,204,113,0.1)';
     btn.style.borderColor = 'rgba(46,204,113,0.3)';
     btn.style.color = 'var(--green)';
-    btn.textContent = '✅ API KEY SET';
+    btn.textContent = '✅ GEMINI CONNECTED';
   } else {
     dot.style.background = 'var(--danger)';
     dot.style.boxShadow = '0 0 8px var(--danger)';
@@ -998,7 +975,7 @@ function updateApiStatus() {
     btn.style.background = 'rgba(255,71,87,0.15)';
     btn.style.borderColor = 'rgba(255,71,87,0.5)';
     btn.style.color = 'var(--danger)';
-    btn.textContent = '⚙️ SET API KEY';
+    btn.textContent = '⚙️ SET FREE API KEY';
   }
 }
 
@@ -1012,10 +989,8 @@ function showPage(name) {
   if (name === 'followup') renderFollowups();
 }
 
-// ===== MODAL =====
-function openAddLead() {
-  document.getElementById('modal-add').classList.add('open');
-}
+function openAddLead() { document.getElementById('modal-add').classList.add('open'); }
+
 function closeModal() {
   document.getElementById('modal-add').classList.remove('open');
   ['add-name','add-owner','add-city','add-phone','add-email','add-web','add-notes','scan-url'].forEach(id => {
@@ -1028,11 +1003,13 @@ function closeModal() {
   document.getElementById('scan-btn').textContent = '🔍 Scan';
 }
 
-// ===== WEBSITE SCANNER =====
+// ===== WEBSITE SCANNER (Gemini) =====
 async function scanWebsite() {
   let url = document.getElementById('scan-url').value.trim();
   if (!url) { showToast('⚠️ Enter a website URL first'); return; }
   if (!url.startsWith('http')) url = 'https://' + url;
+
+  if (!GEMINI_API_KEY) { showToast('⚠️ API key নেই! উপরে SET FREE API KEY বাটন চাপো'); return; }
 
   const statusEl = document.getElementById('scan-status');
   const resultEl = document.getElementById('scan-result');
@@ -1044,7 +1021,7 @@ async function scanWebsite() {
   btn.textContent = '⏳ Scanning...';
   statusEl.style.color = 'var(--accent2)';
 
-  const steps = ['🌐 Connecting to AI...', '🔍 Analyzing website...', '📋 Extracting info...', '✅ Almost done...'];
+  const steps = ['🌐 Connecting to Gemini AI...', '🔍 Analyzing website...', '📋 Extracting info...', '✅ Almost done...'];
   let stepIdx = 0;
   statusEl.textContent = steps[0];
   const stepInterval = setInterval(() => {
@@ -1052,68 +1029,44 @@ async function scanWebsite() {
   }, 1500);
 
   try {
-    const prompt = `You are a Google Ads sales expert analyzing an Australian home renovation business website.
+    const domain = url.replace(/https?:\/\/(www\.)?/, '').split('/')[0];
+    const prompt = `Analyze this Australian home renovation business website URL: ${url}
 
-Visit and analyze this website: ${url}
-
-Based on the URL and any information you can infer about this business, respond in this EXACT JSON format only (no extra text):
+Based on the domain "${domain}" and URL structure, respond with ONLY this JSON (no other text, no markdown):
 {
-  "businessName": "business name from the URL/domain or inferred",
+  "businessName": "business name inferred from domain",
   "ownerName": "",
-  "city": "Australian city and state if detectable, else 'Australia'",
+  "city": "Australian city if detectable from domain, else 'Australia'",
   "phone": "",
   "email": "",
   "service": "one of: Kitchen Renovation, Bathroom Remodel, Home Extension, Full Home Renovation, Deck/Outdoor, Roofing, General Remodeling",
   "adsDetected": "unknown",
   "websiteQuality": "average",
-  "notes": "Based on the URL ${url} — describe what type of renovation business this likely is and why they would benefit from Google Ads",
+  "notes": "2-3 sentences about why this home renovation business in Australia would benefit from Google Ads",
   "adsPotential": "high",
-  "keyInsight": "specific reason why this business needs Google Ads right now"
-}
+  "keyInsight": "one specific reason they need Google Ads now"
+}`;
 
-Use the web_search tool to actually visit ${url} and extract real information before responding.`;
-
-    const aiRes = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1000,
-        tools: [{ type: "web_search_20250305", name: "web_search" }],
-        messages: [{ role: "user", content: `Visit this website and extract business information as JSON: ${url}\n\nSearch for "${url}" and also try to fetch the page. Then respond with ONLY this JSON (no other text):\n{\n  "businessName": "exact name from site",\n  "ownerName": "owner if found else empty",\n  "city": "city, STATE",\n  "phone": "phone if found else empty",\n  "email": "email if found else empty",\n  "service": "Kitchen Renovation OR Bathroom Remodel OR Home Extension OR Full Home Renovation OR Deck/Outdoor OR Roofing OR General Remodeling",\n  "adsDetected": "no OR unknown",\n  "websiteQuality": "poor OR average OR good",\n  "notes": "2-3 sentences about the business and Google Ads opportunity",\n  "adsPotential": "high OR medium OR low",\n  "keyInsight": "one sharp reason they need Google Ads"\n}` }]
-      })
-    });
-
-    const aiData = await aiRes.json();
-    const rawText = aiData.content?.filter(c => c.type === 'text').map(c => c.text || '').join('') || '';
-
+    const text = await callGemini(prompt);
     clearInterval(stepInterval);
 
     let info;
     try {
-      const jsonMatch = rawText.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) throw new Error('No JSON found');
+      const jsonMatch = text.match(/\{[\s\S]*\}/);
+      if (!jsonMatch) throw new Error('No JSON');
       info = JSON.parse(jsonMatch[0]);
     } catch(e) {
-      // Fallback: extract from URL
-      const domain = url.replace(/https?:\/\/(www\.)?/, '').split('/')[0].split('.')[0];
       const bizName = domain.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
       info = {
-        businessName: bizName,
-        ownerName: '', city: 'Australia',
-        phone: '', email: '',
-        service: 'General Remodeling',
-        adsDetected: 'unknown',
-        websiteQuality: 'average',
-        notes: `Business found at ${url}. Home renovation company that could benefit from Google Ads to attract high-intent local customers.`,
-        adsPotential: 'high',
-        keyInsight: 'Home renovation leads from Google Ads have 5-10x higher intent than organic traffic.'
+        businessName: bizName, ownerName: '', city: 'Australia',
+        phone: '', email: '', service: 'General Remodeling',
+        adsDetected: 'unknown', websiteQuality: 'average',
+        notes: `Business at ${url}. Home renovation company that could benefit from Google Ads.`,
+        adsPotential: 'high', keyInsight: 'Google Ads brings high-intent renovation leads.'
       };
     }
 
     statusEl.style.display = 'none';
-
-    // Auto-fill form
     if (info.businessName) document.getElementById('add-name').value = info.businessName;
     if (info.ownerName) document.getElementById('add-owner').value = info.ownerName;
     if (info.city) document.getElementById('add-city').value = info.city;
@@ -1121,23 +1074,12 @@ Use the web_search tool to actually visit ${url} and extract real information be
     if (info.email) document.getElementById('add-email').value = info.email;
     document.getElementById('add-web').value = url;
 
-    const sel = document.getElementById('add-service');
-    for (let opt of sel.options) {
-      if (opt.value === info.service) { sel.value = info.service; break; }
-    }
-    if (info.adsDetected === 'no') document.getElementById('add-ads').value = 'no';
-
-    const notesText = [
-      info.notes || '',
-      info.keyInsight ? `💡 ${info.keyInsight}` : '',
-      info.websiteQuality ? `Website quality: ${info.websiteQuality}` : '',
-      info.adsPotential ? `Ads potential: ${info.adsPotential}` : ''
-    ].filter(Boolean).join('\n');
+    const notesText = [info.notes || '', info.keyInsight ? `💡 ${info.keyInsight}` : '', info.websiteQuality ? `Website: ${info.websiteQuality}` : ''].filter(Boolean).join('\n');
     document.getElementById('add-notes').value = notesText;
 
     resultEl.style.color = 'var(--green)';
     resultEl.style.display = 'block';
-    resultEl.innerHTML = `✅ Done! Found: <strong>${info.businessName}</strong> · ${info.city} · Ads potential: <strong style="color:${info.adsPotential==='high'?'var(--green)':'var(--accent2)'}">${info.adsPotential}</strong>`;
+    resultEl.innerHTML = `✅ Done! Found: <strong>${info.businessName}</strong> · Ads potential: <strong style="color:var(--green)">${info.adsPotential}</strong>`;
 
   } catch(e) {
     clearInterval(stepInterval);
@@ -1159,10 +1101,8 @@ function addLead() {
 
   const lead = {
     id: Date.now(),
-    name,
-    owner: document.getElementById('add-owner').value.trim(),
-    city,
-    phone: document.getElementById('add-phone').value.trim(),
+    name, owner: document.getElementById('add-owner').value.trim(),
+    city, phone: document.getElementById('add-phone').value.trim(),
     email: document.getElementById('add-email').value.trim(),
     website: document.getElementById('add-web').value.trim(),
     service: document.getElementById('add-service').value,
@@ -1190,16 +1130,12 @@ function calcScore(ads, notes) {
   else if (ads === 'yes-poor') score += 20;
   else if (ads === 'yes-good') score -= 10;
   else score += 15;
-
   const n = notes.toLowerCase();
-  if (n.includes('no website') || n.includes('poor website')) score += 15;
   if (n.includes('review') || n.includes('star')) score += 10;
   if (n.includes('busy') || n.includes('growing')) score += 8;
-  if (n.includes('small') || n.includes('local')) score += 5;
   return Math.min(99, Math.max(10, score));
 }
 
-// ===== RENDER LEADS =====
 function renderLeads() {
   const list = document.getElementById('leads-list');
   const filtered = currentFilter === 'all' ? leads : leads.filter(l => l.stage === currentFilter);
@@ -1222,7 +1158,7 @@ function renderLeads() {
         <span>🎯 Score: <strong style="color:${scoreColor(l.score)}">${l.score}</strong></span>
         ${l.phone ? `<span>📞 ${l.phone}</span>` : ''}
         ${l.ads === 'no' ? '<span style="color:var(--green)">✓ No Ads (Hot!)</span>' : ''}
-        <span style="margin-left:auto; color: var(--muted);">${new Date(l.addedAt).toLocaleDateString('en-AU')}</span>
+        <span style="margin-left:auto; color:var(--muted);">${new Date(l.addedAt).toLocaleDateString('en-AU')}</span>
       </div>
     </div>
   `).join('');
@@ -1236,16 +1172,12 @@ function scoreColor(s) {
 
 function filterLeads(f) {
   currentFilter = f;
-  document.querySelectorAll('[id^="f-"]').forEach(b => {
-    b.style.borderColor = '';
-    b.style.color = '';
-  });
+  document.querySelectorAll('[id^="f-"]').forEach(b => { b.style.borderColor = ''; b.style.color = ''; });
   const btn = document.getElementById('f-' + f);
   if (btn) { btn.style.borderColor = 'var(--accent)'; btn.style.color = 'var(--accent)'; }
   renderLeads();
 }
 
-// ===== SELECT LEAD =====
 function selectLead(id) {
   selectedLead = leads.find(l => l.id === id);
   if (!selectedLead) return;
@@ -1257,17 +1189,12 @@ function renderPanel() {
   const l = selectedLead;
   const adsLabel = { no: '❌ Not Running (Opportunity!)', 'yes-poor': '⚠️ Running Poorly', 'yes-good': '✅ Running Well', unknown: '❓ Unknown' };
 
-  const aiAnalysis = getAIAnalysis(l);
-  const pitchPoints = getPitchPoints(l);
-
   document.getElementById('right-panel').innerHTML = `
     <div class="panel-header">
       ${l.name}
       <div style="font-size:11px; font-weight:400; color:var(--muted); margin-top:3px;">${l.city} · ${l.service}</div>
     </div>
     <div class="panel-body">
-
-      <!-- Score -->
       <div class="ai-section">
         <div class="ai-section-header">
           <span>AI LEAD SCORE</span>
@@ -1279,28 +1206,21 @@ function renderPanel() {
         </div>
       </div>
 
-      <!-- Contact Info -->
       <div class="ai-section">
         <div class="ai-section-header"><span>CONTACT INFO</span></div>
-        <div class="ai-section-body" style="font-size:12px;">
-${l.owner ? `👤 ${l.owner}\n` : ''}📍 ${l.city}
-${l.phone ? `📞 ${l.phone}\n` : ''}${l.email ? `📧 ${l.email}\n` : ''}${l.website ? `🌐 ${l.website}\n` : ''}🎯 Google Ads: ${adsLabel[l.ads]}
-        </div>
+        <div class="ai-section-body" style="font-size:12px;">${l.owner ? `👤 ${l.owner}\n` : ''}📍 ${l.city}\n${l.phone ? `📞 ${l.phone}\n` : ''}${l.email ? `📧 ${l.email}\n` : ''}${l.website ? `🌐 ${l.website}\n` : ''}🎯 Google Ads: ${adsLabel[l.ads]}</div>
       </div>
 
-      <!-- AI Analysis -->
       <div class="ai-section">
         <div class="ai-section-header"><span>AI ANALYSIS</span><span>🤖</span></div>
-        <div class="ai-section-body">${aiAnalysis}</div>
+        <div class="ai-section-body">${getAIAnalysis(l)}</div>
       </div>
 
-      <!-- Pitch Points -->
       <div class="ai-section">
         <div class="ai-section-header"><span>PITCH ANGLES</span><span>💡</span></div>
-        <div class="ai-section-body">${pitchPoints}</div>
+        <div class="ai-section-body">${getPitchPoints(l)}</div>
       </div>
 
-      <!-- Stage -->
       <div class="ai-section">
         <div class="ai-section-header"><span>UPDATE STAGE</span></div>
         <div style="padding:10px; display:flex; flex-wrap:wrap; gap:6px;">
@@ -1310,7 +1230,6 @@ ${l.phone ? `📞 ${l.phone}\n` : ''}${l.email ? `📧 ${l.email}\n` : ''}${l.we
         </div>
       </div>
 
-      <!-- Follow-up -->
       <div class="ai-section">
         <div class="ai-section-header"><span>SCHEDULE FOLLOW-UP</span></div>
         <div style="padding:10px; display:flex; gap:8px;">
@@ -1320,12 +1239,10 @@ ${l.phone ? `📞 ${l.phone}\n` : ''}${l.email ? `📧 ${l.email}\n` : ''}${l.we
         ${l.followupDate ? `<div style="padding:0 14px 10px; font-size:12px; color:var(--green);">⏰ Scheduled: ${new Date(l.followupDate).toLocaleDateString('en-AU')}</div>` : ''}
       </div>
 
-      <!-- Notes -->
       ${l.notes ? `<div class="ai-section">
         <div class="ai-section-header"><span>NOTES</span></div>
         <div class="ai-section-body" style="font-size:12px; color:var(--muted);">${l.notes}</div>
       </div>` : ''}
-
     </div>
     <div class="action-row">
       <button class="btn btn-primary btn-sm" onclick="quickOutreach(${l.id})">⚡ Generate Pitch</button>
@@ -1336,43 +1253,29 @@ ${l.phone ? `📞 ${l.phone}\n` : ''}${l.email ? `📧 ${l.email}\n` : ''}${l.we
 
 function getAIAnalysis(l) {
   const analyses = [];
-  if (l.ads === 'no') analyses.push(`🎯 This business has NO Google Ads — perfect opportunity. They're likely getting zero paid traffic while competitors dominate. Your pitch: "You're leaving money on the table every day."`);
-  else if (l.ads === 'yes-poor') analyses.push(`⚠️ They're running Google Ads but poorly. This means wasted budget — you can position yourself as the expert who'll fix their campaigns and stop the bleeding.`);
-  else if (l.ads === 'yes-good') analyses.push(`✅ Already running good ads. Harder to break in. Focus on proving you can scale beyond their current results.`);
-
-  if (l.notes?.toLowerCase().includes('review') || l.notes?.toLowerCase().includes('star')) {
-    analyses.push(`⭐ Good reviews indicate an established, quality business — they CAN afford ads and have something worth promoting.`);
-  }
-  if (l.notes?.toLowerCase().includes('website')) {
-    analyses.push(`🌐 Website mentioned in notes — reference their site quality in your pitch to show you've done your homework.`);
-  }
-
-  analyses.push(`📍 ${l.city} is a competitive renovation market. High average job value (AUD $15k–$80k) means even 1 new client/month pays for ads 10x over.`);
-
+  if (l.ads === 'no') analyses.push(`🎯 This business has NO Google Ads — perfect opportunity. They're leaving money on the table every day.`);
+  else if (l.ads === 'yes-poor') analyses.push(`⚠️ Running Google Ads poorly. You can position yourself as the expert who'll fix their campaigns.`);
+  else if (l.ads === 'yes-good') analyses.push(`✅ Already running good ads. Focus on proving you can scale beyond their current results.`);
+  analyses.push(`📍 ${l.city} renovation market. Average job value AUD $15k–$80k — one client covers ads 10x over.`);
   return analyses.join('\n\n');
 }
 
 function getPitchPoints(l) {
-  const points = [
-    `• "Your competitors in ${l.city} are running Google Ads right now — are you showing up?"`,
-    `• "Home renovation leads from Google Ads have 5–10x higher intent than social media."`,
-    `• "Average AU renovation job: $25,000–$60,000. One lead from ads = entire monthly spend covered."`,
-  ];
-  if (l.ads === 'no') points.push(`• "You've built a great business. Let's bring the customers to YOU — not the other way around."`);
-  return points.join('\n');
+  return [
+    `• "Your competitors in ${l.city} are running Google Ads — are you showing up?"`,
+    `• "Home renovation leads from Google Ads have 5–10x higher intent."`,
+    `• "One lead from ads = entire monthly spend covered."`,
+    l.ads === 'no' ? `• "You've built a great business. Let's bring customers TO you."` : ''
+  ].filter(Boolean).join('\n');
 }
 
-// ===== STAGE UPDATE =====
 function updateStage(id, stage) {
   const l = leads.find(x => x.id === id);
   if (!l) return;
   l.stage = stage;
   l.history = l.history || [];
   l.history.push(`Stage → ${stage} — ${new Date().toLocaleDateString('en-AU')}`);
-  save();
-  renderLeads();
-  renderPanel();
-  updateStats();
+  save(); renderLeads(); renderPanel(); updateStats();
   showToast(`✅ Stage updated to: ${stage}`);
 }
 
@@ -1381,9 +1284,7 @@ function scheduleFollowup(id) {
   const date = document.getElementById('fu-date').value;
   if (!l || !date) { showToast('⚠️ Pick a date first'); return; }
   l.followupDate = date;
-  save();
-  renderPanel();
-  updateStats();
+  save(); renderPanel(); updateStats();
   showToast('📅 Follow-up scheduled!');
 }
 
@@ -1391,20 +1292,14 @@ function deleteLead(id) {
   if (!confirm('Delete this lead?')) return;
   leads = leads.filter(l => l.id !== id);
   selectedLead = null;
-  save();
-  renderLeads();
-  updateStats();
-  document.getElementById('right-panel').innerHTML = `
-    <div class="panel-header">Lead Details</div>
-    <div class="panel-body"><div class="empty" style="padding:40px 10px;"><div class="empty-icon">👈</div><div class="empty-text" style="font-size:13px;">Select a lead to see AI analysis</div></div></div>`;
+  save(); renderLeads(); updateStats();
+  document.getElementById('right-panel').innerHTML = `<div class="panel-header">Lead Details</div><div class="panel-body"><div class="empty" style="padding:40px 10px;"><div class="empty-icon">👈</div><div class="empty-text" style="font-size:13px;">Select a lead to see AI analysis</div></div></div>`;
   showToast('🗑️ Lead deleted');
 }
 
-// ===== PIPELINE =====
 function renderPipeline() {
   const stages = ['new','contacted','qualified','converted','lost'];
-  const board = document.getElementById('pipeline-board');
-  board.innerHTML = stages.map(s => {
+  document.getElementById('pipeline-board').innerHTML = stages.map(s => {
     const items = leads.filter(l => l.stage === s);
     return `
       <div class="pipeline-col">
@@ -1415,14 +1310,12 @@ function renderPipeline() {
               <div class="pipeline-item" onclick="showPage('leads'); selectLead(${l.id});">
                 <div class="pipeline-item-name">${l.name}</div>
                 <div class="pipeline-item-meta">📍 ${l.city} · Score: ${l.score}</div>
-              </div>
-            `).join('')}
+              </div>`).join('')}
         </div>
       </div>`;
   }).join('');
 }
 
-// ===== FOLLOWUPS =====
 function renderFollowups() {
   const items = leads.filter(l => l.followupDate).sort((a,b) => new Date(a.followupDate) - new Date(b.followupDate));
   const list = document.getElementById('followup-list');
@@ -1448,7 +1341,7 @@ function renderFollowups() {
   }).join('');
 }
 
-// ===== AI OUTREACH =====
+// ===== AI OUTREACH (Gemini) =====
 async function generateOutreach() {
   const biz = document.getElementById('out-biz').value.trim();
   const loc = document.getElementById('out-loc').value.trim() || 'Australia';
@@ -1457,6 +1350,7 @@ async function generateOutreach() {
   const notes = document.getElementById('out-notes').value.trim();
 
   if (!biz) { showToast('⚠️ Enter a business name first'); return; }
+  if (!GEMINI_API_KEY) { showToast('⚠️ API key নেই! উপরে ⚙️ বাটন চাপো'); return; }
 
   document.getElementById('out-loading').style.display = 'block';
   document.getElementById('pitch-output').style.display = 'none';
@@ -1469,51 +1363,35 @@ Write a personalized ${type} for this prospect:
 - Service: ${service}
 - Notes: ${notes || 'No extra info'}
 
-The message should:
+Rules:
 1. Be highly personalized and specific to their business
-2. Mention the specific pain of NOT running Google Ads (or running them poorly)
-3. Use Australian English tone — professional but direct
-4. Reference the high value of renovation leads in Australia (avg job $20k–$60k AUD)
-5. Have a clear, low-commitment CTA (e.g. "quick 15-min call")
-6. NOT be generic. Sound like it was written specifically for them.
-7. Keep it concise: under 200 words for email, under 100 for SMS/DM.
+2. Mention the pain of NOT running Google Ads (or running them poorly)
+3. Use Australian English — professional but direct
+4. Reference high renovation lead value in Australia (avg job $20k–$60k AUD)
+5. Clear, low-commitment CTA (e.g. "quick 15-min call")
+6. NOT generic — sound written specifically for them
+7. Under 200 words for email, under 100 for SMS/DM
 
 Write ONLY the message — no explanation or preamble.`;
 
   try {
-    if (!ANTHROPIC_API_KEY) { showToast('⚠️ API key নেই! উপরে ⚙️ বাটন চাপো'); document.getElementById('out-loading').style.display='none'; return; }
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-api-key": ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1000,
-        messages: [{ role: "user", content: prompt }]
-      })
-    });
-    const data = await response.json();
-    const text = data.content?.map(c => c.text || '').join('') || 'Error generating message.';
-
+    const text = await callGemini(prompt);
     document.getElementById('out-loading').style.display = 'none';
     const out = document.getElementById('pitch-output');
     out.style.display = 'block';
     out.textContent = '';
 
-    // Typewriter effect
     let i = 0;
     out.classList.add('typing-cursor');
     const interval = setInterval(() => {
       out.textContent = text.slice(0, i++);
-      if (i > text.length) {
-        clearInterval(interval);
-        out.classList.remove('typing-cursor');
-      }
+      if (i > text.length) { clearInterval(interval); out.classList.remove('typing-cursor'); }
     }, 12);
 
   } catch(e) {
     document.getElementById('out-loading').style.display = 'none';
     document.getElementById('pitch-output').style.display = 'block';
-    document.getElementById('pitch-output').textContent = '⚠️ Error connecting to AI. Please try again.';
+    document.getElementById('pitch-output').textContent = e.message === 'NO_KEY' ? '⚠️ API key নেই! উপরে SET FREE API KEY বাটন চাপো' : '⚠️ Error connecting to Gemini. Please try again.';
   }
 }
 
@@ -1530,10 +1408,8 @@ function quickOutreach(id) {
   document.getElementById('out-loc').value = l.city;
   document.getElementById('out-notes').value = `Ads: ${l.ads}. ${l.notes}`;
   showPage('outreach');
-  document.getElementById('nav-outreach').classList.add('active');
 }
 
-// ===== STATS =====
 function updateStats() {
   document.getElementById('stat-total').textContent = leads.length;
   document.getElementById('stat-contacted').textContent = leads.filter(l => l.stage === 'contacted').length;
@@ -1545,7 +1421,6 @@ function updateStats() {
   document.getElementById('badge-followup').textContent = leads.filter(l => l.followupDate && new Date(l.followupDate) < new Date(Date.now() + 86400000 * 2)).length;
 }
 
-// ===== TOAST =====
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
@@ -1553,27 +1428,20 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 3000);
 }
 
-// ===== SAVE =====
-function save() {
-  localStorage.setItem('adhunter_leads', JSON.stringify(leads));
-}
+function save() { localStorage.setItem('adhunter_leads', JSON.stringify(leads)); }
 
 // ===== INIT =====
 renderLeads();
 updateStats();
 updateApiStatus();
 
-// Demo data if empty
 if (leads.length === 0) {
-  const demo = [
+  leads = [
     { id: 1, name: "Sydney Kitchen Makeovers", owner: "David Chen", city: "Parramatta, NSW", phone: "+61 412 345 678", email: "david@sydneykitchens.com.au", website: "sydneykitchens.com.au", service: "Kitchen Renovation", ads: "no", notes: "4.9 stars on Google, busy shop, no paid ads visible", stage: "new", score: 88, addedAt: new Date().toISOString(), followupDate: null, history: ["Lead added"] },
-    { id: 2, name: "Melbourne Home Extensions", owner: "Sarah Walsh", city: "Richmond, VIC", phone: "+61 401 999 100", email: "info@melbextensions.com.au", website: "melbextensions.com.au", service: "Home Extension", ads: "yes-poor", notes: "Running ads but low quality score, not showing for main keywords", stage: "contacted", score: 72, addedAt: new Date(Date.now()-86400000).toISOString(), followupDate: new Date(Date.now() + 86400000).toISOString().split('T')[0], history: ["Lead added","Stage → contacted"] },
-    { id: 3, name: "Brisbane Bathroom Renos", owner: "Mark Thompson", city: "Fortitude Valley, QLD", phone: "+61 433 111 222", email: "mark@brisbanerenos.com.au", website: "", service: "Bathroom Remodel", ads: "no", notes: "No website found, only Facebook page. Growing fast based on reviews.", stage: "qualified", score: 91, addedAt: new Date(Date.now()-172800000).toISOString(), followupDate: null, history: ["Lead added","Stage → qualified"] },
+    { id: 2, name: "Melbourne Home Extensions", owner: "Sarah Walsh", city: "Richmond, VIC", phone: "+61 401 999 100", email: "info@melbextensions.com.au", website: "melbextensions.com.au", service: "Home Extension", ads: "yes-poor", notes: "Running ads but low quality score", stage: "contacted", score: 72, addedAt: new Date(Date.now()-86400000).toISOString(), followupDate: new Date(Date.now() + 86400000).toISOString().split('T')[0], history: ["Lead added","Stage → contacted"] },
+    { id: 3, name: "Brisbane Bathroom Renos", owner: "Mark Thompson", city: "Fortitude Valley, QLD", phone: "+61 433 111 222", email: "mark@brisbanerenos.com.au", website: "", service: "Bathroom Remodel", ads: "no", notes: "No website found, only Facebook page. Growing fast.", stage: "qualified", score: 91, addedAt: new Date(Date.now()-172800000).toISOString(), followupDate: null, history: ["Lead added","Stage → qualified"] },
   ];
-  leads = demo;
-  save();
-  renderLeads();
-  updateStats();
+  save(); renderLeads(); updateStats();
 }
 </script>
 </body>
